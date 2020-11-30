@@ -12,9 +12,16 @@ import {
 } from "reactstrap";
 import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import auth from "../services/auth0";
 
 function SignUp() {
-  const handleSubmit = values => console.log(values);
+  const handleSubmit = values => {
+    const { username, email, password } = values;
+    console.log("values");
+
+    const response = new auth().signup(email, password, username);
+    debugger;
+  };
 
   const isError = (formik, name) =>
     formik.touched[name] && formik.errors[name] ? true : false;

@@ -9,6 +9,8 @@ import Home from "./views/Home";
 import Profile from "./views/Profile";
 import SignUp from "./views/SignUp";
 import ExternalApi from "./views/ExternalApi";
+import SignIn from "./views/SignIn";
+import Auth from "./views/Auth";
 import { useAuth0 } from "@auth0/auth0-react";
 import history from "./utils/history";
 
@@ -40,6 +42,8 @@ const App = () => {
             <Route path="/profile" component={Profile} />
             <Route path="/external-api" component={ExternalApi} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={SignIn} />
+            <Route path="/auth" component={Auth} />
           </Switch>
         </Container>
         <Footer />

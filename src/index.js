@@ -7,11 +7,9 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import config from "./auth_config.json";
 import history from "./utils/history";
 
-const onRedirectCallback = (appState) => {
+const onRedirectCallback = appState => {
   history.push(
-    appState && appState.returnTo
-      ? appState.returnTo
-      : window.location.pathname
+    appState && appState.returnTo ? appState.returnTo : window.location.pathname
   );
 };
 
@@ -20,7 +18,7 @@ ReactDOM.render(
     domain={config.domain}
     clientId={config.clientId}
     audience={config.audience}
-    redirectUri={window.location.origin}
+    redirectUri={`${window.location.origin}/auth`}
     onRedirectCallback={onRedirectCallback}
   >
     <App />
